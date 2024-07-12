@@ -1,8 +1,6 @@
-package dvd.com.forum_hub.domain.topico;
+package dvd.com.forum_hub.domain.topico.resposta;
 
-import dvd.com.forum_hub.domain.autor.Autor;
 import dvd.com.forum_hub.domain.autor.DadosAutor;
-import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 

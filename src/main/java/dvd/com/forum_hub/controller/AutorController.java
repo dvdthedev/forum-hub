@@ -4,6 +4,7 @@ import dvd.com.forum_hub.domain.autor.Autor;
 import dvd.com.forum_hub.domain.autor.AutorRepository;
 import dvd.com.forum_hub.domain.autor.DadosAutor;
 import dvd.com.forum_hub.domain.autor.DadosCadastroAutor;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("autores")
+@SecurityRequirement(name = "bearer-key")
 public class AutorController {
     @Autowired
     private AutorRepository repository;

@@ -1,6 +1,7 @@
-package dvd.com.forum_hub.domain.topico;
+package dvd.com.forum_hub.domain.topico.resposta;
 
 import dvd.com.forum_hub.domain.autor.Autor;
+import dvd.com.forum_hub.domain.topico.Topico;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
