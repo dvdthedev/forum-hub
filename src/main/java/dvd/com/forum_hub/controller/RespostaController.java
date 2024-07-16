@@ -1,7 +1,9 @@
 package dvd.com.forum_hub.controller;
 
-import dvd.com.forum_hub.domain.topico.resposta.DadosResposta;
-import dvd.com.forum_hub.domain.topico.resposta.RespostaRepository;
+import dvd.com.forum_hub.domain.resposta.DadosNovaResposta;
+import dvd.com.forum_hub.domain.resposta.DadosResposta;
+import dvd.com.forum_hub.domain.resposta.RespostaRepository;
+import dvd.com.forum_hub.domain.resposta.RespostaService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -20,12 +22,16 @@ public class RespostaController {
 
     @Autowired
     private RespostaRepository repository;
+    @Autowired
+    private RespostaService service;
 
     @PostMapping
     @Transactional
-    public ResponseEntity postar(@RequestBody @Valid DadosResposta dados){
+    public ResponseEntity postar(@RequestBody @Valid DadosNovaResposta dados){
 
-
+        System.out.println(dados);
+        var dto = service.postarResposta(dados);
+        System.out.println(dto);
         return ResponseEntity.ok().build();
     }
 }

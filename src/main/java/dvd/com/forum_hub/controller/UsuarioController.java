@@ -1,8 +1,6 @@
 package dvd.com.forum_hub.controller;
 
-import dvd.com.forum_hub.domain.usuario.DadosCadastroUsuario;
-import dvd.com.forum_hub.domain.usuario.Usuario;
-import dvd.com.forum_hub.domain.usuario.UsuarioRepository;
+import dvd.com.forum_hub.domain.usuario.*;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -19,23 +17,19 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioRepository repository;
+    @Autowired
+    private UsuarioService usuarioService;
 
     @GetMapping("/{id}")
     public ResponseEntity buscarUsuario(@PathVariable Long id) {
-        var user = repository.findById(id);
-        if (user.isPresent()) {
-            return ResponseEntity.ok(user.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        DadosUsuario user = usuarioService.buscarUsuarioId(id);
+        return ResponseEntity.ok(user);
     }
 
     @PostMapping
     @Transactional
     public ResponseEntity cadastrarUsuario(@RequestBody @Valid DadosCadastroUsuario dados){
-        var usuario = new Usuario(dados);
-        repository.save(usuario);
-        //var uri = uriBuilder.path("/usuarios/{id}").buildAndExpand(usuario.getId()).toUri();
+        var usuario = usuarioService.cadastroUsuario(dados);
         return ResponseEntity.ok().build();
     }
 }

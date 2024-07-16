@@ -1,4 +1,4 @@
-package dvd.com.forum_hub.domain.topico.resposta;
+package dvd.com.forum_hub.domain.resposta;
 
 import dvd.com.forum_hub.domain.autor.Autor;
 import dvd.com.forum_hub.domain.topico.Topico;
@@ -28,4 +28,12 @@ public class Resposta {
     @ManyToOne
     @JoinColumn(name = "topico_id", nullable = false)
     private Topico topico;
+
+    public Resposta(String mensagem, LocalDateTime now, Autor autor, Topico topico) {
+        this.mensagem = mensagem;
+        this.data = now;
+        this.autor = autor;
+        this.topico = topico;
+
+    }
 }

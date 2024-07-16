@@ -1,15 +1,18 @@
-package dvd.com.forum_hub.domain.topico.resposta;
+package dvd.com.forum_hub.domain.resposta;
 
 import dvd.com.forum_hub.domain.autor.DadosAutor;
+import dvd.com.forum_hub.domain.topico.DadosTopico;
 
 import java.time.LocalDateTime;
 
 public record DadosResposta (
-        Long id,
+
         String mensagem,
         LocalDateTime data,
-        DadosAutor autor
+        Long autor,
+        Long topico
 ) {
+
 }
 
 //

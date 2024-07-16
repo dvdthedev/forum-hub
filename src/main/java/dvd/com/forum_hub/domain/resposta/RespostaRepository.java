@@ -1,4 +1,4 @@
-package dvd.com.forum_hub.domain.topico.resposta;
+package dvd.com.forum_hub.domain.resposta;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

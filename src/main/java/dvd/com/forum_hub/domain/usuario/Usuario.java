@@ -33,6 +33,12 @@ public class Usuario implements UserDetails {
         this.email = dados.email();
     }
 
+    public Usuario(String login, String email, String encryptedPassword) {
+        this.login = login;
+        this.email = email;
+        this.senha = encryptedPassword;
+    }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
